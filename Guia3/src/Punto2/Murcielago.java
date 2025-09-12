@@ -14,22 +14,52 @@ public class Murcielago implements Caracteristicas{
 
     public boolean comer(int comida){
 
-        if(comida!=0){
+        if(!muerto){
 
-            alimentado++;
-            comio=true;
-            amistad=true;
-            System.out.println("Ñam ñam carne chirp");
+            if(comida!=0){
 
-        }
+              alimentado++;
+              comio=true;
+              amistad=true;
+              System.out.println("Ñam ñam carne chirp");
 
-        if(alimentado==2){
-            System.out.println("Gracias por alimentarme tanto! Ahora soy grande y fuerte, vas a morir >:)");
-            return true;
+           }
+
+          if(alimentado==2){
+              System.out.println("Gracias por alimentarme tanto! Ahora soy grande y fuerte, vas a morir >:)");
+               return true;
+           }
+
         }
 
         return false;
     }
+
+    private boolean atacar(boolean espada){
+
+        if(!muerto){
+
+            if(espada){
+
+                System.out.println("NOOOOOO fwishhh");
+                return false;
+
+            }else{
+
+                System.out.println("Fallaste, por eso moriras >:(((((");
+                return true;
+
+            }
+
+        }else{
+
+            System.out.println("Ya no hay quien atacar... asi que atacas una piedra");
+            return false;
+
+        }
+
+    }
+
 
     @Override
     public void caminar() {

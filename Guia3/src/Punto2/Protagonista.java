@@ -20,6 +20,9 @@ public class Protagonista implements Caracteristicas{
     public boolean isSemillas() {
         return semillas;
     }
+    public void setSemillas(boolean a){
+        semillas=a;
+    }
 
     public String getNombre() {
         return nombre;
@@ -27,6 +30,11 @@ public class Protagonista implements Caracteristicas{
 
     public boolean isEspada() {
         return espada;
+    }
+
+
+    public void setComida(int i){
+        comida=comida+i;
     }
 
     public void morir(){

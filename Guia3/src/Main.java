@@ -72,7 +72,51 @@ public class Main {
 
                 case 1:
 
+                    while(eleccion!=6) {
 
+                        if (pato.isMuerto()) {
+
+                        } else {
+                            System.out.println("En la charca te encontras un pato");
+                            System.out.println("1-Hablarle");
+                            System.out.println("2-Atacarlo");
+                            System.out.println("3-Darle semillas");
+                            System.out.println("6-Irte");
+                            eleccion = scanner.nextInt();
+
+
+                            switch (eleccion) {
+
+                                case 1:
+
+                                    pato.caminar();
+
+                                    break;
+                                case 2:
+
+                                    protagonista.setComida(pato.atacar(protagonista.isEspada()));
+
+                                    break;
+                                case 3:
+
+                                    System.out.println("Le das semillas al pato:");
+                                    pato.comer(protagonista.isSemillas());
+                                    protagonista.setSemillas(false);
+
+                                    break;
+                                case 6:
+
+                                    System.out.println("Adios charca!");
+
+                                    break;
+                                default:
+                                    System.out.println("Eleccion incorrecta");
+                                    break;
+
+                            }
+
+                        }
+                    }
                     break;
 
                 case 2:
@@ -84,6 +128,9 @@ public class Main {
                     break;
 
                 case 4:
+
+                    System.out.println("Investigando te encuentras unas semillas!");
+                    protagonista.setSemillas(true);
 
                     break;
 
