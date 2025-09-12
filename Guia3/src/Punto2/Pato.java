@@ -21,7 +21,7 @@ public class Pato implements Caracteristicas{
     public int atacar(boolean espada){
 
         if(!muerto) {
-            if (espada) {
+            if(espada) {
 
                 System.out.println("RIP");
                 amistad = false;
@@ -35,8 +35,9 @@ public class Pato implements Caracteristicas{
                 return 0;
 
             }
+        }else {
+            return 0;
         }
-        return 0;
     }
 
     @Override

@@ -52,6 +52,7 @@ public class Main {
         int eleccion=0;
         Scanner scanner=new Scanner(System.in);
         boolean juego=false;
+        int i;
 
         //DECLARACIONES
 
@@ -76,6 +77,9 @@ public class Main {
 
                         if (pato.isMuerto()) {
 
+                            System.out.println("El pato ya esta muerto maldito");
+                            eleccion=6;
+
                         } else {
                             System.out.println("En la charca te encontras un pato");
                             System.out.println("1-Hablarle");
@@ -94,7 +98,9 @@ public class Main {
                                     break;
                                 case 2:
 
-                                    protagonista.setComida(pato.atacar(protagonista.isEspada()));
+                                    System.out.println("Atacas al pato");
+                                    i=pato.atacar(protagonista.isEspada());
+                                    protagonista.setComida(i);
 
                                     break;
                                 case 3:
@@ -129,8 +135,14 @@ public class Main {
 
                 case 4:
 
-                    System.out.println("Investigando te encuentras unas semillas!");
-                    protagonista.setSemillas(true);
+                    if(!flag) {
+                        System.out.println("Investigando te encuentras unas semillas!");
+                        protagonista.setSemillas(true);
+                        flag=true;
+                    }else {
+                        System.out.println("Investigando encontras una espada!");
+                        protagonista.setEspada();
+                    }
 
                     break;
 
