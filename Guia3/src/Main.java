@@ -176,7 +176,9 @@ public class Main {
 
                                 break;
 
-                            case 6;
+                            case 6:
+
+                                break;
                         }
 
 
