@@ -121,7 +121,7 @@ public class Main {
                                     break;
                                 case 6:
 
-                                    System.out.println("Adios charca!");
+                                    System.out.println("Te retiras de la charca");
 
                                     break;
                                 default:
@@ -136,56 +136,67 @@ public class Main {
 
                 case 2:
 
-                    if(murcielago.isMuerto()){
+                    while(eleccion!=6) {
 
-                        System.out.println("Se encuentra tirado boca arriba, con una herida en el pecho");
-                        eleccion=6;
+                        if (murcielago.isMuerto()) {
 
-                    }else {
+                            System.out.println("Se encuentra tirado boca arriba, con una herida en el pecho");
+                            eleccion = 6;2
 
-                        System.out.println("En la cueva te encontras un murcielago!");
-                        System.out.println("1-Hablarle");
-                        System.out.println("2-Atacarlo");
-                        System.out.println("3-Darle carne");
-                        System.out.println("6-Irte");
-                        eleccion = scanner.nextInt();
+                        } else {
 
-                        switch(eleccion){
+                            System.out.println("En la cueva te encontras un murcielago!");
+                            System.out.println("1-Hablarle");
+                            System.out.println("2-Atacarlo");
+                            System.out.println("3-Darle carne");
+                            System.out.println("6-Irte");
+                            eleccion = scanner.nextInt();
 
-                            case 1:
+                            switch (eleccion) {
 
-                                if(murcielago.isAmistad()){
+                                case 1:
 
-                                    System.out.println("Muchas gracias por la carne amigo mio! Por el poder de la maldad, ahora eres todo poderoso!");
-                                    maldadWin=true;
-                                    eleccion=6;
+                                    if (murcielago.isAmistad()) {
 
-                                }else{
-                                    System.out.println("No me interesa hablar con vos >:( ÑAM");
-                                    protagonista.morir();
-                                    eleccion=6;
-                                }
+                                        System.out.println("Muchas gracias por la carne amigo mio! Por el poder de la maldad, ahora eres todo poderoso!");
+                                        maldadWin = true;
+                                        eleccion = 6;
 
-                                break;
+                                    } else {
+                                        System.out.println("No me interesa hablar con vos >:( ÑAM");
+                                        protagonista.morir();
+                                        eleccion = 6;
+                                    }
 
-                            case 2:
+                                    break;
 
-                                break;
+                                case 2:
 
-                            case 3:
+                                    if (protagonista.isEspada()) {
 
-                                break;
+                                    } else {
+                                        System.out.println("Ja, fallaste >:) ÑAM");
+                                        maldadWin = true;
+                                        eleccion = 6;
+                                    }
 
-                            case 6:
 
-                                break;
+                                    break;
+
+                                case 3:
+
+                                    break;
+
+                                case 6:
+
+                                    break;
+                            }
+
+
                         }
 
-
+                        break;
                     }
-
-                    break;
-
                 case 3:
 
                     break;
