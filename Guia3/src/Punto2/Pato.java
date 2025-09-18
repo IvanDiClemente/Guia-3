@@ -24,6 +24,7 @@ public class Pato implements Caracteristicas{
             if(espada) {
 
                 System.out.println("RIP");
+                System.out.println("+1 de carne");
                 amistad = false;
                 muerto = true;
                 return 1;

@@ -54,6 +54,7 @@ public class Main {
         boolean juego=false;
         int i;
         boolean maldadWin=false;
+        boolean basura;
 
         //DECLARACIONES
 
@@ -141,7 +142,7 @@ public class Main {
                         if (murcielago.isMuerto()) {
 
                             System.out.println("Se encuentra tirado boca arriba, con una herida en el pecho");
-                            eleccion = 6;2
+                            eleccion = 6;
 
                         } else {
 
@@ -152,52 +153,102 @@ public class Main {
                             System.out.println("6-Irte");
                             eleccion = scanner.nextInt();
 
-                            switch (eleccion) {
+                            switch(eleccion) {
 
                                 case 1:
 
-                                    if (murcielago.isAmistad()) {
+                                    if(!murcielago.isMuerto()) {
+                                        if (murcielago.isAmistad()) {
 
-                                        System.out.println("Muchas gracias por la carne amigo mio! Por el poder de la maldad, ahora eres todo poderoso!");
-                                        maldadWin = true;
-                                        eleccion = 6;
+                                            System.out.println("Muchas gracias por la carne amigo mio! Por el poder de la maldad, ahora eres todo poderoso!");
+                                            maldadWin = true;
+                                            eleccion = 6;
 
-                                    } else {
-                                        System.out.println("No me interesa hablar con vos >:( ÑAM");
-                                        protagonista.morir();
-                                        eleccion = 6;
+                                        } else {
+                                            System.out.println("No me interesa hablar con vos >:( ÑAM");
+                                            protagonista.morir();
+                                            eleccion = 6;
+                                        }
+                                    }else{
+                                        System.out.println("No hay con quien hablar");
                                     }
 
                                     break;
 
                                 case 2:
 
-                                    if (protagonista.isEspada()) {
-
-                                    } else {
-                                        System.out.println("Ja, fallaste >:) ÑAM");
-                                        maldadWin = true;
-                                        eleccion = 6;
-                                    }
-
+                                    basura= murcielago.atacar(protagonista.isEspada());
 
                                     break;
 
                                 case 3:
 
+                                    if(murcielago.comer(protagonista.getComida())){
+                                        protagonista.morir();
+                                        protagonista.setComida(-1);
+                                        eleccion = 6;
+                                    } else {
+                                        protagonista.setComida(-1);
+                                    }
+
                                     break;
 
                                 case 6:
 
+                                    System.out.println("Te vas de la cueva");
+
                                     break;
+
+                                default:
+                                    System.out.println("Opcion incorrecta");
+                                    break;
+
                             }
 
 
                         }
 
-                        break;
                     }
+
                 case 3:
+
+                    while(eleccion!=6){
+
+                        System.out.println("En el mar te encontras un pez");
+                        System.out.println("1-Hablarle");
+                        System.out.println("2-Atacarle");
+                        System.out.println("6-Irte");
+                        eleccion= scanner.nextInt();
+
+                        switch(eleccion){
+
+                            case 1:
+
+                                pez.dormir();
+
+                                break;
+
+                            case 2:
+
+                                if(pez.isMuerto()){
+
+                                    System.out.println("Esta muerto");
+                                    eleccion=6;
+
+                                }else{
+
+                                    pez.atacar(protagonista.isEspada());
+                                    eleccion=6;
+
+                                }
+
+                                break;
+
+
+                        }
+
+                    }
+
 
                     break;
 
@@ -216,12 +267,11 @@ public class Main {
 
                 default:
                     System.out.println("Eleccion incorrecta >:(");
-                    protagonista.morir();
                     break;
 
             }
 
-            if(pato.isAmistad() && murcielago.isAmistad() && pez.isAmistad()){
+            if(pato.isAmistad() && murcielago.isMuerto() && pez.isAmistad()){
                 System.out.println("Ganaste el juego! Omedetō!");
                 juego=true;
             }else if(protagonista.isMuerto()){
@@ -230,6 +280,11 @@ public class Main {
             } else if (maldadWin){
                 System.out.println("Ganaste el juego! final malvado >:)");
                 juego=true;
+            }else if(pato.isMuerto() && murcielago.isMuerto() && pez.isMuerto()){
+
+                System.out.println("Ganaste el juego, final genocida >:))))");
+                juego=true;
+
             }
 
         }

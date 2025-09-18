@@ -18,12 +18,17 @@ public class Murcielago implements Caracteristicas{
 
             if(comida!=0){
 
-              alimentado++;
-              comio=true;
-              amistad=true;
-              System.out.println("Ñam ñam carne chirp");
+                alimentado++;
+                comio=true;
+                amistad=true;
+                System.out.println("Ñam ñam carne chirp");
 
-           }
+            }else{
+
+                System.out.println("No tenes carne asi que te voy a comer a vos >:)");
+                return true;
+
+            }
 
           if(alimentado==2){
               System.out.println("Gracias por alimentarme tanto! Ahora soy grande y fuerte, vas a morir >:)");
@@ -35,13 +40,14 @@ public class Murcielago implements Caracteristicas{
         return false;
     }
 
-    private boolean atacar(boolean espada){
+    public boolean atacar(boolean espada){
 
         if(!muerto){
 
             if(espada){
 
                 System.out.println("NOOOOOO fwishhh");
+                muerto=true;
                 return false;
 
             }else{

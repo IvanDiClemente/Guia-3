@@ -2,7 +2,7 @@ package Punto2;
 
 public class Protagonista implements Caracteristicas{
 
-    private int comida=1;
+    private int comida=0;
     private boolean semillas=false;
     private String nombre;
     private boolean espada=false;
